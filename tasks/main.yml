@@ -1,0 +1,37 @@
+- name: Create directory for the mqtt2exporter binary
+  file:
+    state: directory
+    path: /opt/mqtt2exporter/bin
+
+- name: Get mqtt2exporter binary
+  get_url:
+    url: "{{ lookup('vars', 'unifi_mqtt2exporter_' + ansible_machine + '_url') }}"
+    dest: /opt/mqtt2exporter/bin/mqtt2exporter
+    mode: "0755"
+
+- name: Create directory for the mqtt2exporter configuration files
+  file:
+    state: directory
+    path: /opt/mqtt2exporter/etc
+
+- name: unzip yaml files
+  unarchive:
+    remote_src: true
+    src: "{{ mqtt2exporter_archived_messages }}"
+    dest: /opt/mqtt2exporter/etc
+
+- name: create mqtt2exporter service
+  template:
+     src: mqtt2exporter.service.j2
+     dest: /lib/systemd/system/mqtt2exporter.service
+     mode: "0644"
+
+- name: install new mqtt2exporter service
+  systemd:
+    daemon_reload: yes
+
+- name: install new mqtt2exporter service
+  systemd:
+    enabled: yes
+    name: mqtt2exporter
+    state: started

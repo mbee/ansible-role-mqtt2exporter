@@ -1,0 +1,9 @@
+mqtt2exporter_binary_x86_64_url: https://github.com/mbee/mqtt2exporter/blob/master/release/1.0.0/linux/amd64/mqtt2exporter?raw=true
+mqtt2exporter_binary_armv7l_url: https://github.com/mbee/mqtt2exporter/blob/master/release/1.0.0/linux/arm/mqtt2exporter?raw=true
+mqtt2exporter_archived_messages: https://github.com/mbee/mqtt2exporter/blob/master/release/1.0.0/messages.tbz2?raw=true
+mqtt2exporter_mqtt_url: localhost:1883
+mqtt2exporter_mqtt_user:
+mqtt2exporter_mqtt_password:
+mqtt2exporter_prometheus_url: 0.0.0.0:2121
+mqtt2exporter_prometheus_path: /metrics
+mqtt2exporter_device_path: /opt/mqtt2prometheus/etc

@@ -1,0 +1,21 @@
+[Unit]
+Description=mqtt2exporter Daemon
+After=network.target
+
+[Service]
+ExecStart=/opt/mqtt2exporter/bin/mqtt2exporter
+Environment="MQTT_URL={{ mqtt2exporter_mqtt_url }}"
+Environment="MQTT_USER={{ mqtt2exporter_mqtt_user }}"
+Environment="MQTT_PASSWORD={{ mqtt2exporter_mqtt_password }}"
+Environment="PROMETHEUS_URL={{ mqtt2exporter_prometheus_url }}"
+Environment="PROMETHEUS_PATH={{ mqtt2exporter_prometheus_path }}"
+Environment="DEVICE_PATH={{ mqtt2exporter_device_path }}"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Wants=network-online.target
+After=network.target network-online.target
