@@ -5,7 +5,7 @@
 
 - name: Get mqtt2exporter binary
   get_url:
-    url: "{{ lookup('vars', 'unifi_mqtt2exporter_' + ansible_machine + '_url') }}"
+    url: "{{ lookup('vars', 'mqtt2exporter_binary_' + ansible_machine + '_url') }}"
     dest: /opt/mqtt2exporter/bin/mqtt2exporter
     mode: "0755"
 

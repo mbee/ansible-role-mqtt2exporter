@@ -14,3 +14,8 @@ create a playbook and setup on your inventory variables:
 | mqtt2exporter_device_path     | DEVICE_PATH          | /opt/mqtt2prometheus/etc |
 
 they will be replaced by the corresponding environment variable thanks to the systemctl service.
+
+## TODO
+
+- better handling of directory with ansible variables
+- restart the service when needed
