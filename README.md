@@ -17,5 +17,4 @@ they will be replaced by the corresponding environment variable thanks to the sy
 
 ## TODO
 
-- better handling of directory with ansible variables
 - restart the service when needed

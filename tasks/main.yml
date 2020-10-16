@@ -9,16 +9,26 @@
     dest: /opt/mqtt2exporter/bin/mqtt2exporter
     mode: "0755"
 
-- name: Create directory for the mqtt2exporter configuration files
+- name: Create directory for the mqtt2exporter device files
   file:
     state: directory
-    path: /opt/mqtt2exporter/etc
+    path: "{{ mqtt2exporter_devices_path }}"
 
 - name: unzip yaml files
   unarchive:
     remote_src: true
     src: "{{ mqtt2exporter_archived_messages }}"
-    dest: /opt/mqtt2exporter/etc
+    dest: "{{ mqtt2exporter_devices_path }}"
+
+- name: Create directory for the mqtt2exporter synonym files
+  file:
+    state: directory
+    path: "{{ mqtt2exporter_synonyms_path }}"
+
+- name: create synonyms file
+  template:
+    src: synonyms.yml.j2
+    dest: "{{ mqtt2exporter_synonyms_path }}/synonyms.yml"
 
 - name: create mqtt2exporter service
   template:

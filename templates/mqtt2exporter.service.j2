@@ -9,7 +9,8 @@ Environment="MQTT_USER={{ mqtt2exporter_mqtt_user }}"
 Environment="MQTT_PASSWORD={{ mqtt2exporter_mqtt_password }}"
 Environment="PROMETHEUS_URL={{ mqtt2exporter_prometheus_url }}"
 Environment="PROMETHEUS_PATH={{ mqtt2exporter_prometheus_path }}"
-Environment="DEVICE_PATH={{ mqtt2exporter_device_path }}"
+Environment="DEVICE_PATH={{ mqtt2exporter_devices_path }}"
+Environment="SYNONYM_PATH={{ mqtt2exporter_synonyms_path }}"
 Restart=always
 RestartSec=5
 
