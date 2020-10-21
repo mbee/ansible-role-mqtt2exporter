@@ -4,13 +4,14 @@ After=network.target
 
 [Service]
 ExecStart=/opt/mqtt2exporter/bin/mqtt2exporter
-Environment="MQTT_URL={{ mqtt2exporter_mqtt_url }}"
-Environment="MQTT_USER={{ mqtt2exporter_mqtt_user }}"
-Environment="MQTT_PASSWORD={{ mqtt2exporter_mqtt_password }}"
-Environment="PROMETHEUS_URL={{ mqtt2exporter_prometheus_url }}"
-Environment="PROMETHEUS_PATH={{ mqtt2exporter_prometheus_path }}"
-Environment="DEVICE_PATH={{ mqtt2exporter_devices_path }}"
-Environment="SYNONYM_PATH={{ mqtt2exporter_synonyms_path }}"
+Environment=MQTT_URL={{ mqtt2exporter_mqtt_url }}
+Environment=MQTT_USER={{ mqtt2exporter_mqtt_user }}
+Environment=MQTT_PASSWORD={{ mqtt2exporter_mqtt_password }}
+Environment=MQTT_CLIENT_ID={{ mqtt2exporter_mqtt_client_id }}
+Environment=PROMETHEUS_URL={{ mqtt2exporter_prometheus_url }}
+Environment=PROMETHEUS_PATH={{ mqtt2exporter_prometheus_path }}
+Environment=DEVICE_PATH={{ mqtt2exporter_devices_path }}
+Environment=SYNONYM_PATH={{ mqtt2exporter_synonyms_path }}
 Restart=always
 RestartSec=5
 
